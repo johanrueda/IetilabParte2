@@ -9,7 +9,7 @@ public class TaskDto {
     String status;
     String assignedTo;
     Date dueDate;
-    Date createdAt;
+    Date created;
 
     public TaskDto(String name, String description, String status, String assignedTo, Date dueDate, Date createdAt) {
         this.name = name;
