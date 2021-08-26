@@ -1,22 +1,34 @@
 package edu.eci.apirest.data;
 
+import edu.eci.apirest.dto.TaskDto;
+import edu.eci.apirest.enums.Status;
+
 import java.util.Date;
 
 public class Task {
     String id;
     String name;
-    String status;
+    Status status;
     String assignedTo;
     Date dueDate;
     Date created;
 
-    public Task(String id, String name, String status, String assignedTo, Date dueDate, Date created) {
+    public Task(String id, String name, Status status, String assignedTo, Date dueDate, Date created) {
         this.id = id;
         this.name = name;
         this.status = status;
         this.assignedTo = assignedTo;
         this.dueDate = dueDate;
         this.created = created;
+    }
+
+    public Task(TaskDto task, String id){
+        this.id=id;
+        this.name=task.getName();
+        this.status=task.getStatus();
+        this.assignedTo=task.getAssignedTo();
+        this.dueDate=task.getDueDate();
+        this.created=task.getCreatedAt();
     }
 
     public String getId() {
@@ -35,11 +47,11 @@ public class Task {
         this.name = name;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
